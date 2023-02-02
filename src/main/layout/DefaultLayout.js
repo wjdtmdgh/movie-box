@@ -1,22 +1,16 @@
-import { LaptopOutlined, NotificationOutlined, UserOutlined, FileOutlined, PieChartOutline,DesktopOutlined,TeamOutlined  } from '@ant-design/icons';
-import {Breadcrumb, Card, Layout, Menu, theme} from 'antd';
-import React, {useEffect, useState} from 'react';
-import {PieChartOutlined } from '@ant-design/icons';
+import { UserOutlined, FileOutlined,DesktopOutlined,TeamOutlined  } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import React, {useState} from 'react';
+import { PieChartOutlined } from '@ant-design/icons';
 import '../../styles/layout/layout.css';
-import webClient from "../../utils/WebClient";
-import Popular from "./Whats Popular";
+import Popular from "./WhatsPopular";
 import Free from "./FreetoWatch";
 
-const { Meta } = Card;
-const { Header, Content, Footer, Sider } = Layout;
-
-
-
+const { Content, Footer, Sider } = Layout;
 
 const DefaultLayout = () => {
     const [moviechart, setMovieChart] = useState("popular");
     const [collapsed, setCollapsed] = useState(false);
-    const [nowPlaying, setNowPlaying] = useState([]);
     const popular =()=>{
         setMovieChart("popular");
     }
@@ -47,39 +41,6 @@ const DefaultLayout = () => {
         getItem('Trailer', '9', <FileOutlined />),
     ];
 
-  useEffect(() => {
-    webClient.get("https://api.themoviedb.org/3/movie/now_playing?api_key=bc1db2058ee79a68eba79b137eaf2356&language=ko-KR&page=1")
-      .then((res) => {
-        setNowPlaying(res.data.results);
-      })
-  }, [])
-
-
-  useEffect(() => {
-    console.log(nowPlaying);
-  }, [nowPlaying])
-
-  const movieCard = (() =>
-      nowPlaying.map(item => (
-        <Card
-          hoverable
-          style={{
-            width: 240,
-          }}
-          cover={<img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} />}
-        >
-          <Meta
-            title={item.title}
-            description={item.overview} />
-        </Card>
-      ))
-  )
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
-
   return (
       <Layout
           style={{
@@ -90,8 +51,6 @@ const DefaultLayout = () => {
               <div
                   style={{
                       height: 10,
-                      //margin: 16,
-                      //background: 'rgba(255, 255, 255, 0.2)',
                   }}
               />
               <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
