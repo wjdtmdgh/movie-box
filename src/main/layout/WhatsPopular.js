@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
-import {Card, theme} from "antd";
+import {Button, Card, theme} from "antd";
 import webClient from "../../utils/WebClient";
 
 const { Meta } = Card;
@@ -24,24 +24,6 @@ function WhatsPopular(){
         console.log(nowPlaying);
     }, [nowPlaying])
 
-    const movieCard = (() =>
-            nowPlaying.map(item => (
-                    <Card
-                        hoverable
-                        style={{
-                            width: 240,
-                        }}
-                        cover={
-                            <img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}  />
-                     }
-                    >
-                        <Meta
-                            title={item.title}
-                            description={item.overview} />
-                    </Card>
-            ))
-    )
-
     return(
         <div className={"card"}>
             {nowPlaying.map(item => (
@@ -51,10 +33,12 @@ function WhatsPopular(){
                         width: 240,
                     }}
                     cover={<img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} />}
+                    onClick={()=>{onMovieCardClick(item.id)}}
                 >
                     <Meta
                         title={item.title}
                         description={item.overview} />
+
                 </Card>
             ))}
 
