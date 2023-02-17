@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import webClient from "../../utils/WebClient";
-import {Card} from "antd";
+import "../../styles/layout/MovieDetail.css"
 
 function  MovieDetail(){
+
     const {movieId} = useParams();
     const [movieDetail,setMovieDetail] = useState();
     useEffect(() => {
@@ -16,11 +17,15 @@ function  MovieDetail(){
         console.log(movieDetail);
     },[movieDetail])
     return(
-        <div>
-            {movieDetail &&
-                <img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} />
-            }
-            <p>{movieId}</p>
+        <div >
+              {
+                 movieDetail &&
+                  <div>
+                      <div className="MDposter2" style={{backgroundImage: `url("https://image.tmdb.org/t/p/w500/${movieDetail.backdrop_path}")`}}>
+                          <img className="MDposter" alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} />
+                      </div>
+                  </div>
+                }
         </div>
     );
 }

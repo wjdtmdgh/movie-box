@@ -1,0 +1,12 @@
+.MDposter{
+    width: 23%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+}
+
+.MDposter2{
+    background-repeat: no-repeat ;
+    background-position: right top;
+    background-size: cover;
+}
