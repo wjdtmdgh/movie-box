@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import webClient from "../../utils/WebClient";
 import "../../styles/layout/MovieDetail.css"
-import { Card, Popover  } from 'antd';
+import { Card, Popover,Modal,message, Divider,Select  } from 'antd';
 import { Progress} from 'antd';
-import {CheckCircleFilled,SketchCircleFilled,PlusCircleFilled,DingtalkCircleFilled } from "@ant-design/icons";
+import {LikeFilled,DislikeFilled ,CheckCircleFilled,SketchCircleFilled,PlusCircleFilled,DingtalkCircleFilled } from "@ant-design/icons";
 
 const { Meta } = Card;
 const content1 = (
@@ -28,7 +28,8 @@ const content4 = (
     </div>
 );
 function  MovieDetail(){
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [messageApi,contextHolder] = message.useMessage();
     const {movieId} = useParams();
     const [movieDetail,setMovieDetail] = useState();
     useEffect(() => {
@@ -40,6 +41,25 @@ function  MovieDetail(){
     useEffect(()=>{
         console.log(movieDetail);
     },[movieDetail])
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+    const success = () => {
+        messageApi.open({
+            type: 'success',
+            content: '성공! 이미지 평가 완료',
+        });
+    };
+
     return(
         <div >
               {
@@ -47,12 +67,39 @@ function  MovieDetail(){
                   <div>
                       <div className="MDposter2" style={{backgroundImage: `url("https://image.tmdb.org/t/p/w500/${movieDetail.backdrop_path}")`}}>
                               <Card
+                                  onClick={showModal}
                                   className="MDposter"
                                   hoverable
                                   cover={<img className="MDimg" alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} />}
                               >
                                   <Meta title="Now Straming" description="Whatch Now" />
                               </Card>
+                          <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                              <div  className="MDmodal">
+                                  <img className="MDmodalimg" alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} />
+                                  <div>
+                                      {contextHolder}
+                                      <DislikeFilled className="MDmodalicon" onClick={success}/>
+                                      <LikeFilled className="MDmodalicon2" onClick={success}/>
+                                      <p className="MDmodalp1"><b>정보</b></p>
+                                      <Divider className="MDmodaldivider"/>
+                                      <p className="MDmodalp2">Primary?</p>
+                                      <p className="MDmodalp2">(이)가 추가함<br/>kwanlove</p>
+                                      <p className="MDmodalp2">크기<br/>743x1100</p>
+                                      <p className="MDmodalp2">언어</p>
+                                      <Select className="MDmodalselect"
+                                          defaultValue="영어"
+                                          style={{ width: 120 }}
+                                          options={[
+                                              { value: '영어', label: '영어' },
+                                              { value: '한국어', label: '한국어' },
+                                              { value: '일본어', label: '일본어' },
+                                              { value: '중국어', label: '중국어'},
+                                          ]}
+                                      />
+                                  </div>
+                              </div>
+                          </Modal>
                           <div className="MDdiv1">
                               <h1 className="MDh1">블랙 팬서: 와칸다 포에버(2022)</h1>
                               <p className="MDp1"><b>2022/11/09(KR) - 액션,모험,SF - 2h 42m</b></p>
@@ -73,6 +120,11 @@ function  MovieDetail(){
                               <p className="MDp2"><b>두 세계가 충돌한다</b></p>
                               <h2>개요</h2>
                               <p className="MDp3">국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자<br/> 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 <br/>최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…</p>
+                              <div className="MDdiv2">
+                                  <p className="MDp4"><a href="/">Ryan Coogler</a> <br/>Director, Screenplay,Story</p>
+                                  <p className="MDp4"><a href="/">Stan Lee</a> <br/>Characters</p>
+                                  <p className="MDp4"><a href="/">Jack Kirby</a><br/>Characters</p>
+                              </div>
                           </div>
                       </div>
                   </div>
