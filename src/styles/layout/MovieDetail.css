@@ -1,12 +1,45 @@
 .MDposter{
-    width: 23%;
-    margin-top: 1%;
-    margin-bottom: 5%;
-    margin-left: 5%;
+    width: 25%;
+    margin-left: 3%;
 }
 
+.MDimg{
+    filter: brightness(130%);
+}
+.MDh1{
+    margin-top: 5%;
+    font-size: 30px;
+}
+.MDp1{
+    font-size: 15px;
+    margin-top: -2%;
+
+}
+.MDp2{
+    font-style: italic;
+    font-size: 17px;
+}
+.MDp3{
+    font-size: 16px;
+}
+.MDprogress{
+    margin-right: 1%;
+}
+.MDdiv1{
+    width: 100%;
+    margin-left: 4%;
+    color: white;
+}
 .MDposter2{
     background-repeat: no-repeat ;
     background-position: right top;
     background-size: cover;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    display: flex;
+
+}
+.MDicon{
+    margin-left: 2%;
+    font-size: 30px;
 }
