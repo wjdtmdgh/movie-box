@@ -95,8 +95,17 @@
 }
 .MD2card{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    overflow: scroll;
     margin-top: 3%;
     margin-left: 2%;
+    width: 100%;
+}
+.MD2realcard{
+    margin-right: 3%;
+    width: 140px;
+    height: 330px;
+}
+.MD2realcardMeta{
+    width: 100%;
+    font-size: 80%;
 }

@@ -136,24 +136,24 @@ function  MovieDetail(){
                           </div>
                       </div>
                       <Row>
-                          <Col span={18}>
+                          <Col span={16}>
                               <h1 className="MD2h1">주요 출연진</h1>
                               <div className="MD2card">
                                   {movieCharacter.map(item => (
                                       <Card
-                                          style={{
-                                              width: 120,
-                                          }}
+                                          className="MD2realcard"
                                           cover={<img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`} />}
                                       >
                                           <Meta
-                                              title={item.title}
-                                              description={item.overview} />
+                                              className="MD2realcardMeta"
+                                              title={item.original_name}
+                                              description={item.character} />
 
                                       </Card>
                                   ))}
                               </div>
                           </Col>
+                          <Col span={2}></Col>
                           <Col span={6}>
                               <FacebookFilled className="MD2icon1"/>
                               <TwitterOutlined className="MD2icon1"/>
