@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom';
 import webClient from "../../utils/WebClient";
 import "../../styles/layout/MovieDetail.css"
-import { Card, Popover,Modal,message, Divider,Select  } from 'antd';
+import { Card, Popover,Modal,message, Divider,Select,Col, Row   } from 'antd';
 import { Progress} from 'antd';
-import {LikeFilled,DislikeFilled ,CheckCircleFilled,SketchCircleFilled,PlusCircleFilled,DingtalkCircleFilled } from "@ant-design/icons";
+import { FacebookFilled,TwitterOutlined,InstagramOutlined,LikeFilled,DislikeFilled ,CheckCircleFilled,SketchCircleFilled,PlusCircleFilled,DingtalkCircleFilled } from "@ant-design/icons";
 
 const { Meta } = Card;
 const content1 = (
@@ -32,15 +32,25 @@ function  MovieDetail(){
     const [messageApi,contextHolder] = message.useMessage();
     const {movieId} = useParams();
     const [movieDetail,setMovieDetail] = useState();
+    const [movieCharacter, setMovieCharacter] = useState([]);
     useEffect(() => {
         webClient.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=17782ac9805895b80c9219fa3809a24c&language=ko-kr`)
             .then((res) => {
                 setMovieDetail(res.data);
             })
     }, [])
+    useEffect(() => {
+        webClient.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=17782ac9805895b80c9219fa3809a24c&language=en-US`)
+            .then((res) => {
+                setMovieCharacter(res.data.cast);
+            })
+    }, [])
     useEffect(()=>{
         console.log(movieDetail);
     },[movieDetail])
+    useEffect(()=>{
+        console.log(movieCharacter);
+    },[movieCharacter])
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -52,14 +62,12 @@ function  MovieDetail(){
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-
     const success = () => {
         messageApi.open({
             type: 'success',
             content: '성공! 이미지 평가 완료',
         });
     };
-
     return(
         <div >
               {
@@ -101,9 +109,9 @@ function  MovieDetail(){
                               </div>
                           </Modal>
                           <div className="MDdiv1">
-                              <h1 className="MDh1">블랙 팬서: 와칸다 포에버(2022)</h1>
-                              <p className="MDp1"><b>2022/11/09(KR) - 액션,모험,SF - 2h 42m</b></p>
-                              <Progress className="MDprogress" width={50} type="circle" percent={75} strokeColor="white"  />
+                              <h1 className="MDh1">{movieDetail.title}</h1>
+                              <p className="MDp1"><b>{movieDetail.release_date} - 액션,모험,SF - 2h 42m</b></p>
+                              <Progress className="MDprogress" width={50} type="circle" percent={movieDetail.vote_average} strokeColor="white"  />
                               <b>회원점수</b>
                               <Popover placement="bottomLeft" content={content1}>
                                   <PlusCircleFilled className="MDicon"/>
@@ -117,9 +125,9 @@ function  MovieDetail(){
                               <Popover placement="bottomLeft" content={content4}>
                                   <DingtalkCircleFilled className="MDicon"/>
                               </Popover>
-                              <p className="MDp2"><b>두 세계가 충돌한다</b></p>
+                              <p className="MDp2"><b>{movieDetail.tagline}</b></p>
                               <h2>개요</h2>
-                              <p className="MDp3">국왕이자 블랙 팬서인 티찰라의 죽음 이후 수많은 강대국으로부터 위협을 받게 된 와칸다. 라몬다, 슈리 그리고 나키아, 오코예, 음바쿠는 각자<br/> 사명감을 갖고 와칸다를 지키기 위해 외로운 싸움을 이어간다. 한편, 비브라늄의 패권을 둘러싼 미스터리한 음모와 함께 깊은 해저에서 모습을 드러낸 <br/>최강의 적 네이머와 탈로칸의 전사들은 와칸다를 향해 무차별 공격을 퍼붓기 시작하는데…</p>
+                              <p className="MDp3">{movieDetail.overview}</p>
                               <div className="MDdiv2">
                                   <p className="MDp4"><a href="/">Ryan Coogler</a> <br/>Director, Screenplay,Story</p>
                                   <p className="MDp4"><a href="/">Stan Lee</a> <br/>Characters</p>
@@ -127,6 +135,41 @@ function  MovieDetail(){
                               </div>
                           </div>
                       </div>
+                      <Row>
+                          <Col span={18}>
+                              <h1 className="MD2h1">주요 출연진</h1>
+                              <div className="MD2card">
+                                  {movieCharacter.map(item => (
+                                      <Card
+                                          style={{
+                                              width: 120,
+                                          }}
+                                          cover={<img alt="영화 포스터" src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`} />}
+                                      >
+                                          <Meta
+                                              title={item.title}
+                                              description={item.overview} />
+
+                                      </Card>
+                                  ))}
+                              </div>
+                          </Col>
+                          <Col span={6}>
+                              <FacebookFilled className="MD2icon1"/>
+                              <TwitterOutlined className="MD2icon1"/>
+                              <InstagramOutlined className="MD2icon1"/>
+                              <p className="MD2p1"><b>원제</b></p>
+                              <p className="MD2p2">{movieDetail.original_title}</p>
+                              <p className="MD2p1"><b>상태</b></p>
+                              <p className="MD2p2">개봉됨</p>
+                              <p className="MD2p1"><b>원어</b></p>
+                              <p className="MD2p2">영어</p>
+                              <p className="MD2p1"><b>제작비</b></p>
+                              <p className="MD2p2">$250,000,000.00</p>
+                              <p className="MD2p1"><b>수익</b></p>
+                              <p className="MD2p2">$855,099,029.00</p>
+                          </Col>
+                      </Row>
                   </div>
                 }
         </div>

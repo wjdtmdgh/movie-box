@@ -79,3 +79,24 @@
     margin-left: 5%;
     margin-top: -3%;
 }
+.MD2h1{
+    margin-left: 5%;
+}
+.MD2icon1{
+    font-size: 22px;
+    margin-top: 5%;
+    margin-right: 7%;
+}
+.MD2p1{
+    font-size: 17px;
+}
+.MD2p2{
+    margin-top: -3%;
+}
+.MD2card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-left: 2%;
+}
