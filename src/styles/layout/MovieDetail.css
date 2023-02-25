@@ -7,7 +7,7 @@
     filter: brightness(130%);
 }
 .MDh1{
-    margin-top: 5%;
+    margin-top: 2%;
     font-size: 30px;
 }
 .MDp1{
@@ -101,11 +101,15 @@
     width: 100%;
 }
 .MD2realcard{
-    margin-right: 3%;
+    margin-right: 2%;
     width: 140px;
     height: 330px;
 }
 .MD2realcardMeta{
     width: 100%;
     font-size: 80%;
+}
+.MD2col{
+    margin-top: 3%;
+    padding-left: 5%;
 }

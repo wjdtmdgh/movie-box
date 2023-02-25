@@ -129,14 +129,14 @@ function  MovieDetail(){
                               <h2>개요</h2>
                               <p className="MDp3">{movieDetail.overview}</p>
                               <div className="MDdiv2">
-                                  <p className="MDp4"><a href="/">Ryan Coogler</a> <br/>Director, Screenplay,Story</p>
-                                  <p className="MDp4"><a href="/">Stan Lee</a> <br/>Characters</p>
-                                  <p className="MDp4"><a href="/">Jack Kirby</a><br/>Characters</p>
+                                  <p className="MDp4">Ryan Coogler<br/>Director, Screenplay,Story</p>
+                                  <p className="MDp4">Stan Lee<br/>Characters</p>
+                                  <p className="MDp4">Jack Kirby<br/>Characters</p>
                               </div>
                           </div>
                       </div>
                       <Row>
-                          <Col span={16}>
+                          <Col span={18}>
                               <h1 className="MD2h1">주요 출연진</h1>
                               <div className="MD2card">
                                   {movieCharacter.map(item => (
@@ -152,9 +152,10 @@ function  MovieDetail(){
                                       </Card>
                                   ))}
                               </div>
+                              <Divider></Divider>
+                              <h1 className="MD2h1">사용자 의견</h1>
                           </Col>
-                          <Col span={2}></Col>
-                          <Col span={6}>
+                          <Col span={6} className="MD2col">
                               <FacebookFilled className="MD2icon1"/>
                               <TwitterOutlined className="MD2icon1"/>
                               <InstagramOutlined className="MD2icon1"/>
