@@ -1,0 +1,115 @@
+.MDposter{
+    width: 25%;
+    margin-left: 3%;
+}
+
+.MDimg{
+    filter: brightness(130%);
+}
+.MDh1{
+    margin-top: 2%;
+    font-size: 30px;
+}
+.MDp1{
+    font-size: 15px;
+    margin-top: -2%;
+
+}
+.MDp2{
+    font-style: italic;
+    font-size: 17px;
+}
+.MDp3{
+    font-size: 16px;
+}
+.MDp4{
+    font-size: 16px;
+    margin-right:30%;
+}
+.MDprogress{
+    margin-right: 1%;
+}
+.MDdiv1{
+    width: 100%;
+    margin-left: 4%;
+    color: white;
+}
+.MDdiv2{
+    display: flex;
+}
+.MDposter2{
+    background-repeat: no-repeat ;
+    background-position: right top;
+    background-size: cover;
+    padding-top: 2%;
+    padding-bottom: 5%;
+    display: flex;
+
+}
+.MDicon{
+    margin-left: 2%;
+    font-size: 30px;
+}
+.MDmodal{
+    display: flex;
+}
+.MDmodalimg{
+    width: 50%;
+}
+.MDmodalicon{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-right: 150px;
+    margin-top: 25px;
+}
+.MDmodalicon2{
+    font-size: 20px;
+}
+.MDmodalp1{
+    margin-top: 10%;
+    margin-left: 5%;
+}
+.MDmodaldivider{
+    margin-left: 8%;
+}
+.MDmodalp2{
+    margin-left: 5%;
+}
+.MDmodalselect{
+    margin-left: 5%;
+    margin-top: -3%;
+}
+.MD2h1{
+    margin-left: 5%;
+}
+.MD2icon1{
+    font-size: 22px;
+    margin-top: 5%;
+    margin-right: 7%;
+}
+.MD2p1{
+    font-size: 17px;
+}
+.MD2p2{
+    margin-top: -3%;
+}
+.MD2card{
+    display: flex;
+    overflow: scroll;
+    margin-top: 3%;
+    margin-left: 2%;
+    width: 100%;
+}
+.MD2realcard{
+    margin-right: 2%;
+    width: 140px;
+    height: 330px;
+}
+.MD2realcardMeta{
+    width: 100%;
+    font-size: 80%;
+}
+.MD2col{
+    margin-top: 3%;
+    padding-left: 5%;
+}
