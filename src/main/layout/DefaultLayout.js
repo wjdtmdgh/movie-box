@@ -3,10 +3,10 @@ import { Layout, Menu } from 'antd';
 import React, {useState} from 'react';
 import { PieChartOutlined } from '@ant-design/icons';
 import '../../styles/layout/layout.css';
-import Popular from "./WhatsPopular";
+import Popular from "./NowPlaying";
 import Free from "./TopRated";
 import UpComing from "./UpComing";
-
+import Playing from"./Popular";
 const { Content, Footer, Sider } = Layout;
 
 const DefaultLayout = () => {
@@ -21,11 +21,14 @@ const DefaultLayout = () => {
     const upcoming=()=>{
         setMovieChart("upcoming")
     }
+    const playing=()=>{
+        setMovieChart("playing")
+    }
     const selectComponent={
         popular: <Popular/>,
         free: <Free/>,
         upcoming: <UpComing/>,
-
+        playing:<Playing/>
     }
     function getItem(label, key, icon, children) {
         return {
@@ -36,15 +39,10 @@ const DefaultLayout = () => {
         };
     }
     const items = [
-        getItem('Whats Popular', '1', <PieChartOutlined onClick={popular}/>),
+        getItem('Now Playing', '1', <PieChartOutlined onClick={popular}/>),
         getItem('Top Rated', '2', <DesktopOutlined onClick={free}/>),
         getItem('Upcoming', '9', <FileOutlined onClick={upcoming}/>),
-        getItem('Leader Board', 'sub1', <UserOutlined />, [
-            getItem('LEE', '3'),
-            getItem('SEUNG', '4'),
-            getItem('Park', '5'),
-        ]),
-        getItem('Trend', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+        getItem('Popular', 'sub1', <UserOutlined onClick={playing}/>),
     ];
 
   return (

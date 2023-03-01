@@ -5,7 +5,7 @@ import webClient from "../../utils/WebClient";
 
 const { Meta } = Card;
 
-function WhatsPopular(){
+function NowPlaying(){
     const navigate = useNavigate();
     const onMovieCardClick=(movieId)=>{
         console.log("눌림");
@@ -45,4 +45,4 @@ function WhatsPopular(){
         </div>
     );
 }
-export default WhatsPopular;
+export default NowPlaying;

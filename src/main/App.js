@@ -15,7 +15,7 @@ function App() {
       <Routes>
           <Route path="/" element={<DefaultLayout />} />
           <Route path="/movie" element={<MoviePage/>}/>
-          <Route path="/tv" element={<UpComing/>}/>
+          <Route path="/tv" element={<MorePage/>}/>
           <Route path="/person" element={<CharacterPage/>}/>
           <Route path="/more" element={<MorePage/>}/>
           <Route path="/movie/:movieId" element={<MovieDetail/>}/>
