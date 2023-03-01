@@ -5,6 +5,7 @@ import { PieChartOutlined } from '@ant-design/icons';
 import '../../styles/layout/layout.css';
 import Popular from "./WhatsPopular";
 import Free from "./TopRated";
+import UpComing from "./UpComing";
 
 const { Content, Footer, Sider } = Layout;
 
@@ -17,9 +18,14 @@ const DefaultLayout = () => {
     const free=()=>{
         setMovieChart("free");
     }
+    const upcoming=()=>{
+        setMovieChart("upcoming")
+    }
     const selectComponent={
         popular: <Popular/>,
-        free: <Free/>
+        free: <Free/>,
+        upcoming: <UpComing/>,
+
     }
     function getItem(label, key, icon, children) {
         return {
@@ -32,13 +38,13 @@ const DefaultLayout = () => {
     const items = [
         getItem('Whats Popular', '1', <PieChartOutlined onClick={popular}/>),
         getItem('Top Rated', '2', <DesktopOutlined onClick={free}/>),
+        getItem('Upcoming', '9', <FileOutlined onClick={upcoming}/>),
         getItem('Leader Board', 'sub1', <UserOutlined />, [
             getItem('LEE', '3'),
             getItem('SEUNG', '4'),
             getItem('Park', '5'),
         ]),
         getItem('Trend', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-        getItem('Trailer', '9', <FileOutlined />),
     ];
 
   return (
