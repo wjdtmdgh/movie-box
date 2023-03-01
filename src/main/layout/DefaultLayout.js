@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import { PieChartOutlined } from '@ant-design/icons';
 import '../../styles/layout/layout.css';
 import Popular from "./WhatsPopular";
-import Free from "./FreetoWatch";
+import Free from "./TopRated";
 
 const { Content, Footer, Sider } = Layout;
 
@@ -31,7 +31,7 @@ const DefaultLayout = () => {
     }
     const items = [
         getItem('Whats Popular', '1', <PieChartOutlined onClick={popular}/>),
-        getItem('Free To Watch', '2', <DesktopOutlined onClick={free}/>),
+        getItem('Top Rated', '2', <DesktopOutlined onClick={free}/>),
         getItem('Leader Board', 'sub1', <UserOutlined />, [
             getItem('LEE', '3'),
             getItem('SEUNG', '4'),

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {Link, useNavigate} from 'react-router-dom';
-import {Button, Card, theme} from "antd";
+import {useNavigate} from 'react-router-dom';
+import {Card} from "antd";
 import webClient from "../../utils/WebClient";
 
 const { Meta } = Card;
