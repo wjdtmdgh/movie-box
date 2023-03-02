@@ -7,7 +7,7 @@ import MoviePage from "./layout/MoviePage";
 import CharacterPage from "./layout/CharacterPage";
 import MorePage from "./layout/MorePage";
 import MovieDetail from "./layout/MovieDetail";
-import CharaterDetail from "./layout/CharacterDetail";
+import CharacterDetail from "./layout/CharacterDetail";
 function App() {
   return (
     <Layout>
@@ -19,7 +19,7 @@ function App() {
           <Route path="/person" element={<CharacterPage/>}/>
           <Route path="/more" element={<MorePage/>}/>
           <Route path="/movie/:movieId" element={<MovieDetail/>}/>
-          <Route path="/person/:characterId" element={<CharaterDetail/>}/>
+          <Route path="/person/:characterId" element={<CharacterDetail/>}/>
       </Routes>
     </Layout>
   );

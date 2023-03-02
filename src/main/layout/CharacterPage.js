@@ -8,6 +8,7 @@ const { Meta } = Card;
 function  CharacterPage(){
     const [character,setCharacter]=useState([]);
     const navigate=useNavigate();
+
     const onMoveCharacterDetail=(charaterId)=>{
         navigate(`/person/${charaterId}`);
     }
@@ -23,15 +24,15 @@ function  CharacterPage(){
     return(
         <div className={"card"}>
             {character.map(item=>(
-                <Card
-                    hoverable
-                    style={{ width: 240 }}
-                    cover={<img alt="example" src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`} />}
-                    onClick={()=>{onMoveCharacterDetail(item.id)}}
-                >
-                    <Meta title={item.name} description={item.known_for_department} />
-                </Card>
-            ))}
+                    <Card
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src={`https://image.tmdb.org/t/p/w500/${item.profile_path}`} />}
+                        onClick={()=>{onMoveCharacterDetail(item.id)}}
+                    >
+                        <Meta title={item.name} description={item.known_for_department} />
+                    </Card>
+             ))}
         </div>
     );
 }
