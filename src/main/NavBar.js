@@ -12,10 +12,7 @@ const Navbar = () => {
                     <div className="logo" />
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
                         <Menu.Item>
-                            <Link to="/">Home</Link>
-                        </Menu.Item>
-                        <Menu.Item>
-                            <Link to="/movie">Movie</Link>
+                            <Link to="/">Movie</Link>
                         </Menu.Item>
                         <Menu.Item>
                             <Link to="/tv">TV Program</Link>

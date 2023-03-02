@@ -4,10 +4,10 @@ import DefaultLayout from "./layout/DefaultLayout";
 import NavBar from "./NavBar";
 import '../styles/App.css';
 import MoviePage from "./layout/MoviePage";
-import UpComing from "./layout/UpComing";
 import CharacterPage from "./layout/CharacterPage";
 import MorePage from "./layout/MorePage";
 import MovieDetail from "./layout/MovieDetail";
+import CharaterDetail from "./layout/CharacterDetail";
 function App() {
   return (
     <Layout>
@@ -19,6 +19,7 @@ function App() {
           <Route path="/person" element={<CharacterPage/>}/>
           <Route path="/more" element={<MorePage/>}/>
           <Route path="/movie/:movieId" element={<MovieDetail/>}/>
+          <Route path="/person/:characterId" element={<CharaterDetail/>}/>
       </Routes>
     </Layout>
   );
