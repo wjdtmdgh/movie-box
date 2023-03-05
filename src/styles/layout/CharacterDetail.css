@@ -1,0 +1,39 @@
+.CDdiv1{
+    display: flex;
+}
+.CDimg1{
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.CDh1{
+    margin-top: 5%;
+    font-size: 35px;
+    margin-bottom: 4%;
+}
+.CDp1{
+    font-size: 20px;
+
+}
+.CDp2{
+    font-size: 16px;
+    margin-top: -1%;
+}
+.CDp3{
+    margin-top: 5%;
+    font-size: 20px;
+
+}
+.CDcard{
+    display: flex;
+    flex-wrap: wrap;
+}
+.CDcard2{
+    margin-right: 3%;
+    width: 150px;
+}
+.CDicon{
+    margin-top: 5%;
+    font-size: 28px;
+}
