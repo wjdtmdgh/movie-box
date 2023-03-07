@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {Link, useNavigate} from 'react-router-dom';
-import {Button, Card, theme} from "antd";
+import {useNavigate} from 'react-router-dom';
+import {Card} from "antd";
 import webClient from "../../utils/WebClient";
 
 const { Meta } = Card;
 
-function WhatsPopular(){
+function NowPlaying(){
     const navigate = useNavigate();
     const onMovieCardClick=(movieId)=>{
         console.log("눌림");
@@ -45,4 +45,4 @@ function WhatsPopular(){
         </div>
     );
 }
-export default WhatsPopular;
+export default NowPlaying;

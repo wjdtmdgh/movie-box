@@ -153,7 +153,6 @@ function  MovieDetail(){
                                 ))}
                             </div>
                             <Divider></Divider>
-                            <h1 className="MD2h1">사용자 의견</h1>
                         </Col>
                         <Col span={6} className="MD2col">
                             <FacebookFilled className="MD2icon1"/>

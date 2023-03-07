@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {Col, Row, Image, Progress} from 'antd';
-import webClient from "../../utils/WebClient";
 import "../../styles/layout/CharacterDetail.css";
 import { Card } from 'antd';
 import {InstagramOutlined} from '@ant-design/icons';
+import { Col, Row,Image } from 'antd';
+import webClient from "../../utils/WebClient";
+import "../../styles/layout/CharacterDetail.css";
+
 const { Meta } = Card;
 function CharacterDetail(){
     const {characterId} = useParams();
@@ -45,7 +47,6 @@ function CharacterDetail(){
                 <p className="MD2p2">{characterDetail.birthday}</p>
                 <p className="MD2p1"><b>출생지</b></p>
                 <p className="MD2p2">{characterDetail.place_of_birth}</p>
-
             </div>
             <div className="CDdiv2">
                 <h1 className="CDh1">{characterDetail.name}</h1>
@@ -58,6 +59,7 @@ function CharacterDetail(){
                             <Card
                                 className="CDcard2"
                                 hoverable
+                                style={{ width: 120 }}
                                 cover={<img alt="example" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} />}
                             >
                                 <Meta title={item.title}  />
@@ -65,7 +67,6 @@ function CharacterDetail(){
                         ))}
                 </div>
             </div>
-
         </div>
     );
 }
